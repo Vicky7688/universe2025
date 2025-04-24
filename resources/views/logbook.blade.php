@@ -721,8 +721,6 @@
 
 
 
-
-
 <script>
     let loanData = []; // Array to store the fetched data
 
