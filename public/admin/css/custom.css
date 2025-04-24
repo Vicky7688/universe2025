@@ -1,0 +1,196 @@
+.none{
+    display: none;
+}
+.error{
+    border-color: red !important;
+}
+label {
+	margin: 4px 0px 3px 0px !important;
+}
+html.sidebar-enable #mySidebar {
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    width: 250px; /* Adjust as needed */
+    height: 100%;
+    background: #fff; /* Sidebar background color */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3); /* Optional shadow */
+    transition: transform 0.3s ease;
+    transform: translateX(100%); /* Hidden by default */
+    z-index: 1000; /* Ensure it is above other content */
+}
+
+html.sidebar-enable #mySidebar.open {
+    transform: translateX(0); /* Slide in when opened */
+}
+
+
+
+.autocomplete-suggestions {
+    border: none !important;
+}
+/*
+.form-control {
+	height: 27px !important;
+}
+.form-select {
+	height: 27px  !important;
+    padding: 0px 0px 0px 9px !important;
+}
+#selectize-optgroup {
+	height: 27px  !important;
+    padding: 0px 0px 0px 9px !important;
+} */
+
+#selectize-optgroup:focus {
+    border-color: #ffffff !important;
+}
+
+#selectize-optgroup-selectized:focus {
+    border-color: #ffffff !important;
+}
+
+.laal {
+	color: #f21414 !important;
+}
+.hara {
+	color: #059305 !important;
+}
+.btn.btn-primary {
+	background-color: #3cbade !important;
+	border-color: #3cbade  !important;
+}
+
+.laallaal {
+	background-color: #ce3131 !important;
+}
+.laallaal td {
+	color: #fff !important;
+}
+.hrahra {
+	background-color: #31ce39 !important;
+}
+.hrahra td {
+	color: #fff !important;
+}
+i.fas.fa-bars {
+    font-size: 24px;
+    color: red;
+}
+
+  /* .laallaal {
+	background-color: rgb(228, 220, 220);
+}
+.laallaal td {
+    color: #a00;
+}
+  .hrahra {
+	background-color:rgb(228, 220, 220);
+}
+.hrahra td {
+	color: #1f7700;
+} */
+input {
+	color: #464646 !important;
+}
+ /* manpreet */
+ .gradient-btn {
+    background: linear-gradient(45deg, #ff4d4d, #4d94ff);
+    color: white;
+    font-weight: bold;
+    border-radius: 50px;
+    margin-bottom: 12px;
+}
+.gradient-btn:hover {
+    background: linear-gradient(45deg, #ff4d4d, #4d94ff);
+    opacity: 0.9;
+    color: #fff;
+}
+.main-header-info {
+    padding: 20px 0 0;
+}
+.main-header-info h4 {
+    margin-bottom: 20px;
+}
+.up-bottom-space20 {
+    padding: 20px 0;
+}
+.content {
+    padding-top: 60px;
+}
+.main-header-info:after {
+    content: "";
+    height: 1px;
+    width: 100%;
+    display: flex;
+    background:#c0c0c0;
+    right: 0;
+    position: absolute;
+    left: 0;
+
+}
+.cst-text-blue {
+    color: #4EBEFF;
+}
+.app-menu {
+    padding-top: 20px;
+}
+.logo-box {
+    height: auto !important;
+}
+.app-menu .menu-item .menu-link {
+    padding: 15px 10px !important;
+}
+.app-menu .menu-item .menu-link:hover {
+    color: black !important;
+}
+.table-scroll {
+    overflow-x: auto;
+}
+.app-menu .menu-item .menu-link:hover {
+    background-color: #4EBEFF !important;
+    color: #fff !important;
+
+    .wrapper {
+        display: flex;
+        height: 100vh; /* Full height */
+    }
+
+    .sidebar {
+        width: 250px;
+        position: fixed;
+        height: 100%;
+    }
+
+}
+@media (max-width: 991px) {
+  .table-scroll {
+    display: block;
+  }
+
+}
+
+@media (max-width: 1150px) {
+    .fixed-header.fix-h {
+        width: 100% !important;
+    }
+
+}
+/* Hide sidebar and show hamburger icon on small screens */
+@media (max-width: 768px) {
+    #sidebarMenu {
+        width: 0;
+        overflow: hidden;
+    }
+    #sidebarMenu.open {
+        width: 250px;
+    }
+    .hamburger-icon {
+        display: block;
+    }
+}
+
+.backgroundside{
+    font-size: 25px;
+    font-weight: 700;
+}
