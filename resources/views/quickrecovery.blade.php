@@ -178,12 +178,13 @@
                                 <div class="row mt-3">
                                     <div class="col-md-4 col-sm-12">
                                         <label class="form-label">Account name</label>
-                                        <input type="text" id="customer_Id" name="customer_Id"
+                                        {{-- <input type="text" id="customer_Id" name="customer_Id"
                                             class="form-control form-input-controller " required=""
-                                            list="list-timezone" id="input-datalist" onblur="getCustomerId(this.value)">
+                                            list="list-timezone" id="input-datalist" onblur="getCustomerId(this.value)"> --}}
                                         {{--  onchange="getCustomerId(this.value)"  --}}
 
-                                        <datalist id="list-timezone">
+                                        {{-- <datalist id="list-timezone"> --}}
+                                            <select name="customer_Id"  id="customer_Id" class="form-select form-input-controller" onblur="getCustomerId(this.value)">
                                             @if (sizeof($member_accounts) > 0)
                                                 @foreach ($member_accounts as $member_accountss)
                                                     <option value="{{ $member_accountss->customer_Id }}">
@@ -192,7 +193,8 @@
                                                     </option>
                                                 @endforeach
                                             @endif
-                                        </datalist>
+                                        {{-- </datalist> --}}
+                                    </select>
                                     </div>
                                     <div class="col-md-2 col-sm-12">
                                         <label class="form-label">Total Payment</label>

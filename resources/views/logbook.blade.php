@@ -168,8 +168,11 @@
                                 onchange="getCustomerId(this.value)">
                                 @if (sizeof($member_accounts) > 0)
                                     @foreach ($member_accounts as $member_accountss)
-<option @if(Session::has('emisess')) @if(Session::get('emisess')==$member_accountss->customer_Id) @selected(true)  @endif @endif >{{ $member_accountss->name }}({{ $member_accountss->customer_Id }})
-</option>
+                                        <option
+                                            @if (Session::has('emisess')) @if (Session::get('emisess') == $member_accountss->customer_Id) @selected(true) @endif
+                                            @endif
+                                            >{{ $member_accountss->name }}({{ $member_accountss->customer_Id }})
+                                        </option>
                                     @endforeach
                                 @endif
                             </select>
@@ -476,8 +479,7 @@
 
                         <div class=" col-md-4 col-sm-12">
                             <label class="form-label mb-1" for="status-org">Payment by </label>
-                            <select name="cashbanktype" id="cashbanktype"
-                                class="form-select form-input-controller">
+                            <select name="cashbanktype" id="cashbanktype" class="form-select form-input-controller">
                                 <option value=""selected>Select Type</option>
                             </select>
                         </div>
@@ -931,8 +933,7 @@
                     id: id,
                     _token: '{{ csrf_token() }}' // Include CSRF token if needed
                 },
-                success: function(response) {
-                }
+                success: function(response) {}
             });
             updatetable();
         }

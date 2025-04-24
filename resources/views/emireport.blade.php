@@ -54,15 +54,18 @@
     .laaal td {
         color: rgb(250, 28, 28);
     }
-    .fonts{
+
+    .fonts {
         color: black;
-        font-weight:700;
-    }
-    .selected {
-        background-color: #3cbade !important; /* Dark Background */
-        color: white !important; /* White Text */
+        font-weight: 700;
     }
 
+    .selected {
+        background-color: #3cbade !important;
+        /* Dark Background */
+        color: white !important;
+        /* White Text */
+    }
 </style>
 <div class="row">
     <div class="col-xl-12">
@@ -73,21 +76,26 @@
                     <div class="row">
                         <div class="mb-2 col-md-4">
                             <label class="form-label">Account name</label>
-                            <input
+                            {{-- <input
                                 type="text" class="form-control fonts showhere" placeholder="Search Account name"
                                 list="list-timezone" id="input-datalist" oninput="getCustomerId(this.value)"
+                                onchange="getCustomerId(this.value)"> --}}
+                            <select name="" id="input-datalist" oninput="getCustomerId(this.value)"
                                 onchange="getCustomerId(this.value)">
-                            <datalist id="list-timezone">
+                                {{-- <datalist id="list-timezone"> --}}
                                 @if (sizeof($member_accounts) > 0)
                                     @foreach ($member_accounts as $member_accountss)
                                         <option>{{ $member_accountss->name }}-({{ $member_accountss->customer_Id }})
                                         </option>
                                     @endforeach
                                 @endif
-                            </datalist>
+                                {{-- </datalist> --}}
+                            </select>
                         </div>
                         <div class="mb-2 col-md-4">
-                            <button id="downloadExcel" class="btn btn-primary" type="button" style="display:none;margin-top: 25px; font-weight: 700; color:black;">Download Excel</button>
+                            <button id="downloadExcel" class="btn btn-primary" type="button"
+                                style="display:none;margin-top: 25px; font-weight: 700; color:black;">Download
+                                Excel</button>
                         </div>
                     </div>
                 </form>
@@ -125,15 +133,18 @@
                         <div class="col-sm-5"></div>
                         <div class="col-sm-2">
                             <label for="">Total Dr.</label>
-                            <input type="text" style="text-align:right; font-size:15px; font-weight:700;"  name="totaldr" id="totaldr" readonly>
+                            <input type="text" style="text-align:right; font-size:15px; font-weight:700;"
+                                name="totaldr" id="totaldr" readonly>
                         </div>
                         <div class="col-sm-2">
                             <label for="">Total Cr.</label>
-                            <input type="text" name="totalcr"  style="text-align:right; font-size:15px; font-weight:700;" id="totalcr" readonly>
+                            <input type="text" name="totalcr"
+                                style="text-align:right; font-size:15px; font-weight:700;" id="totalcr" readonly>
                         </div>
                         <div class="col-sm-2">
                             <label for="">Total Balance</label>
-                            <input type="text" name="totalbalance" style="text-align:right; font-size:15px; font-weight:700;" id="totalbalance" readonly>
+                            <input type="text" name="totalbalance"
+                                style="text-align:right; font-size:15px; font-weight:700;" id="totalbalance" readonly>
                         </div>
                     </div>
                 </div>
@@ -152,7 +163,6 @@
 </script>
 
 <script>
-
     $(document).ready(function() {
         @if (Session::has('emisess'))
             var cstid = "{{ Session::get('emisess') }}";
@@ -166,7 +176,7 @@
                 },
                 success: function(response) {
                     $('.showhere').val(response);
-                   },
+                },
                 error: function(xhr, status, error) {
                     console.error('AJAX Error: ', error);
                 }
@@ -177,7 +187,7 @@
 
     let loanData = []; // Array to store loan data for download
 
-    
+
 
 
     function getCustomerId(value) {
@@ -209,7 +219,7 @@
         let totalbalances = 0;
         let interestamounts = 0;
         let dd = 0;
-        let cc =0;
+        let cc = 0;
         let ff = 0;
         $.ajax({
             url: '{{ route('emireportloan') }}',
@@ -235,7 +245,7 @@
                     principal: 0,
                     paid: 0,
                     pending: 0,
-                    interest:0,
+                    interest: 0,
                 }; // For tracking totals of current loan
 
                 response.forEach(item => {
@@ -266,7 +276,7 @@
                             principal: 0,
                             paid: 0,
                             pending: 0,
-                            interest:0,
+                            interest: 0,
                         };
                     }
 
@@ -284,21 +294,21 @@
 
 
                     aaaaa = principal + interest;
-                    asasasas = paid+paidinterest;
+                    asasasas = paid + paidinterest;
                     ppp = aaaaa - asasasas;
 
                     const currentDate = new Date();
 
                     // Parse the formattedInstallmentDate into a Date object (assuming it's in a format like 'YYYY-MM-DD')
                     const installmentDate = new Date(formattedInstallmentDate);
-                    console.log('installmentDate'+installmentDate,'currentDate'+currentDate);
+                    console.log('installmentDate' + installmentDate, 'currentDate' + currentDate);
                     {{--  if (installmentDate < currentDate) {
                         rowColor = 'laaal';
                     }  --}}
 
                     if (paid > pending) {
                         rowColor = '';
-                    }else{
+                    } else {
                         rowColor = 'laaal';
                     }
 
@@ -354,7 +364,7 @@
                     $('#dinchak').append(totalsRow);
                 }
 
-                $('#netrows').css('display','block');
+                $('#netrows').css('display', 'block');
 
                 dd += interestamounts + totaldr;
                 cc += totalcr + ff;
@@ -371,8 +381,8 @@
                 // Add the grand totals row
                 {{--  const grandTotalRow = `
                 <tr class="raddd" style="margin-top:5px;">  --}}
-                    {{--  <td colspan="3" class="border" style="text-align: right;"><strong>Grand Total:</strong></td>  --}}
-                    {{--  <td class="border"></td>
+                {{--  <td colspan="3" class="border" style="text-align: right;"><strong>Grand Total:</strong></td>  --}}
+                {{--  <td class="border"></td>
                     <td class="border"></td>
                     <td class="border"></td>
                      <td class="border"></td>
@@ -396,7 +406,7 @@
     document.getElementById('downloadExcel').addEventListener('click', function() {
         let csvContent = 'data:text/csv;charset=utf-8,';
         csvContent +=
-        'Loan Date,Emi No,Amount,Adj Amount,Pending Amount,Due Date\n'; // Header
+            'Loan Date,Emi No,Amount,Adj Amount,Pending Amount,Due Date\n'; // Header
 
         loanData.forEach(function(rowArray) {
             let row = rowArray.join(',');
